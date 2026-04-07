@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Web Scraping
+  - Data Aggregation
   - Data Extraction
   - Headless Browser
   - Proxy Rotation
-  - Data Aggregation
+  - Web Scraping
 url: >-
   https://raw.githubusercontent.com/api-evangelist/scrapingbee/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -29,9 +29,9 @@ apis:
     humanURL: https://www.scrapingbee.com
     baseURL: https://app.scrapingbee.com/api/v1
     tags:
-      - Web Scraping
       - HTML Extraction
       - JavaScript Rendering
+      - Web Scraping
     properties:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/
@@ -45,9 +45,9 @@ apis:
     humanURL: https://www.scrapingbee.com/features/data-extraction/
     baseURL: https://app.scrapingbee.com/api/v1
     tags:
+      - AI Extraction
       - Data Extraction
       - Structured Data
-      - AI Extraction
     properties:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/data-extraction/
