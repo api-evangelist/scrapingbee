@@ -1,0 +1,13 @@
+{
+  "repo": "scrapingbee",
+  "feeds": [
+    {
+      "source": "https://www.scrapingbee.com/blog/",
+      "feed_url": "https://www.scrapingbee.com/index.xml",
+      "saved": 10,
+      "title": "ScrapingBee \u2013 The Best Web Scraping API"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:35:41Z"
+}
