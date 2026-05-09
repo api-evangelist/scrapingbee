@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://www.scrapingbee.com/blog/",
-      "feed_url": "https://www.scrapingbee.com/index.xml",
-      "saved": 10,
-      "title": "ScrapingBee \u2013 The Best Web Scraping API"
+      "feed_url": "https://www.scrapingbee.com/blog/index.xml",
+      "title": "ScrapingBee's Blog on ScrapingBee \u2013 The Best Web Scraping API",
+      "saved": 3
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:35:41Z"
+  "post_count": 13,
+  "fetched": "2026-05-09T20:17:51Z"
 }
