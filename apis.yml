@@ -75,13 +75,13 @@ common:
     url: https://www.scrapingbee.com/pricing/
   - type: Blog
     url: https://www.scrapingbee.com/blog/
-  - type: Sign Up
+  - type: SignUp
     url: https://app.scrapingbee.com/account/register
   - type: Login
     url: https://app.scrapingbee.com/account/login
   - type: Support
     url: https://help.scrapingbee.com
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/ScrapingBee
   - type: Python SDK
     url: https://github.com/ScrapingBee/scrapingbee-python
