@@ -16,7 +16,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/scrapingbee/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-03-26'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: scrapingbee:html-api
@@ -89,6 +89,9 @@ common:
     url: https://github.com/ScrapingBee/scrapingbee-node
   - type: Postman Collection
     url: https://www.postman.com/api-evangelist/scraping/documentation/ygpc6xm/scrapingbee
+  - name: MCP Server
+    url: https://github.com/ScrapingBee/mcp-server
+    type: MCPServer
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
