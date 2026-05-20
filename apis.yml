@@ -67,6 +67,8 @@ apis:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/scrapingbee
   - type: Website
     url: https://www.scrapingbee.com
   - type: Documentation
