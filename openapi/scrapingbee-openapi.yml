@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: ScrapingBee
+  description: |
+    ScrapingBee is a web scraping API that handles headless browsers, proxy
+    rotation, and CAPTCHA solving so developers can extract data from any
+    website with a single API call.
+    Source: https://www.scrapingbee.com/documentation/
+  version: "1.0"
+servers:
+  - url: https://app.scrapingbee.com/api/v1
+    description: ScrapingBee HTML API
+security:
+  - ApiKeyAuth: []
+paths:
+  /:
+    get:
+      summary: Scrape a URL and return HTML (or screenshot/JSON)
+      operationId: scrape
+      tags: [HTML API]
+      parameters:
+        - $ref: "#/components/parameters/ApiKey"
+        - name: url
+          in: query
+          required: true
+          description: URL to scrape (must be URL-encoded, include scheme).
+          schema: { type: string, format: uri }
+        - name: render_js
+          in: query
+          description: Execute JavaScript via headless browser. Defaults to true.
+          schema: { type: boolean }
+        - name: wait
+          in: query
+          description: Additional rendering delay in milliseconds.
+          schema: { type: integer }
+        - name: wait_for
+          in: query
+          description: CSS or XPath selector to wait for.
+          schema: { type: string }
+        - name: wait_browser
+          in: query
+          description: Browser state condition to wait for.
+          schema:
+            type: string
+            enum: [domcontentloaded, load, networkidle0, networkidle2]
+        - name: premium_proxy
+          in: query
+          description: Use residential proxies.
+          schema: { type: boolean }
+        - name: stealth_proxy
+          in: query
+          description: Use the stealth proxy pool.
+          schema: { type: boolean }
+        - name: country_code
+          in: query
+          description: ISO 3166-1 country code for proxy geolocation.
+          schema: { type: string }
+        - name: block_ads
+          in: query
+          description: Block advertisements during rendering.
+          schema: { type: boolean }
+        - name: screenshot
+          in: query
+          description: Return a screenshot of the page instead of HTML.
+          schema: { type: boolean }
+        - name: screenshot_full_page
+          in: query
+          schema: { type: boolean }
+        - name: json_response
+          in: query
+          description: Wrap response in JSON format.
+          schema: { type: boolean }
+        - name: extract_rules
+          in: query
+          description: JSON-encoded extraction rules (CSS selectors).
+          schema: { type: string }
+      responses:
+        "200":
+          description: HTML, screenshot bytes, or JSON wrapper depending on params.
+          content:
+            text/html:
+              schema: { type: string }
+            image/png:
+              schema: { type: string, format: binary }
+            application/json:
+              schema: { type: object, additionalProperties: true }
+    post:
+      summary: Scrape a URL with a POST body
+      operationId: scrapePost
+      tags: [HTML API]
+      parameters:
+        - $ref: "#/components/parameters/ApiKey"
+        - name: url
+          in: query
+          required: true
+          schema: { type: string, format: uri }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema: { type: object, additionalProperties: true }
+          application/json:
+            schema: { type: object, additionalProperties: true }
+      responses:
+        "200":
+          description: Response from the target site.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: ScrapingBee account key, passed as a query parameter.
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema: { type: string }
