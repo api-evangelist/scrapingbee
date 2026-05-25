@@ -1,21 +1,37 @@
 openapi: 3.1.0
 info:
-  title: ScrapingBee
+  title: ScrapingBee API
   description: |
-    ScrapingBee is a web scraping API that handles headless browsers, proxy
-    rotation, and CAPTCHA solving so developers can extract data from any
-    website with a single API call.
+    ScrapingBee is a France-based web scraping API that handles headless browsers,
+    proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
+    extract data from any website with a single API call. This OpenAPI describes
+    the core HTML scraping endpoint and the dedicated Google Search SERP API.
     Source: https://www.scrapingbee.com/documentation/
   version: "1.0"
+  contact:
+    name: ScrapingBee Support
+    url: https://help.scrapingbee.com
+  license:
+    name: ScrapingBee Terms of Service
+    url: https://www.scrapingbee.com/terms-and-conditions/
 servers:
   - url: https://app.scrapingbee.com/api/v1
-    description: ScrapingBee HTML API
+    description: ScrapingBee API
 security:
   - ApiKeyAuth: []
+tags:
+  - name: HTML API
+    description: Headless-browser scraping with proxy rotation, screenshots, and AI extraction.
+  - name: Google Search API
+    description: Structured Google SERP results (web, news, maps, images).
 paths:
   /:
     get:
-      summary: Scrape a URL and return HTML (or screenshot/JSON)
+      summary: Scrape a URL and Return HTML, Screenshot, or JSON
+      description: |
+        Fetch a target URL through ScrapingBee's headless browser and proxy network.
+        Returns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text
+        depending on the parameters supplied.
       operationId: scrape
       tags: [HTML API]
       parameters:
@@ -27,15 +43,19 @@ paths:
           schema: { type: string, format: uri }
         - name: render_js
           in: query
-          description: Execute JavaScript via headless browser. Defaults to true.
-          schema: { type: boolean }
+          description: Execute JavaScript via headless browser. Defaults to true (5 credits).
+          schema: { type: boolean, default: true }
+        - name: js_scenario
+          in: query
+          description: JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).
+          schema: { type: string }
         - name: wait
           in: query
           description: Additional rendering delay in milliseconds.
           schema: { type: integer }
         - name: wait_for
           in: query
-          description: CSS or XPath selector to wait for.
+          description: CSS or XPath selector to wait for before returning.
           schema: { type: string }
         - name: wait_browser
           in: query
@@ -45,11 +65,11 @@ paths:
             enum: [domcontentloaded, load, networkidle0, networkidle2]
         - name: premium_proxy
           in: query
-          description: Use residential proxies.
+          description: Use residential premium proxy pool (10 credits without JS, 25 with JS).
           schema: { type: boolean }
         - name: stealth_proxy
           in: query
-          description: Use the stealth proxy pool.
+          description: Use the stealth proxy pool for high-protection sites (75 credits).
           schema: { type: boolean }
         - name: country_code
           in: query
@@ -59,33 +79,88 @@ paths:
           in: query
           description: Block advertisements during rendering.
           schema: { type: boolean }
+        - name: block_resources
+          in: query
+          description: Block heavy resources (images, fonts, css) to speed up rendering.
+          schema: { type: boolean }
+        - name: cookies
+          in: query
+          description: Semicolon-separated cookie list to send with the request.
+          schema: { type: string }
+        - name: forward_headers
+          in: query
+          description: Forward Spb-* prefixed headers to the target site.
+          schema: { type: boolean }
         - name: screenshot
           in: query
           description: Return a screenshot of the page instead of HTML.
           schema: { type: boolean }
         - name: screenshot_full_page
           in: query
+          description: Capture a full-page screenshot, not just the viewport.
           schema: { type: boolean }
+        - name: screenshot_selector
+          in: query
+          description: CSS selector to limit the screenshot region.
+          schema: { type: string }
         - name: json_response
           in: query
-          description: Wrap response in JSON format.
+          description: Wrap response in JSON format with metadata.
+          schema: { type: boolean }
+        - name: return_page_text
+          in: query
+          description: Return plain text content instead of HTML.
+          schema: { type: boolean }
+        - name: return_page_markdown
+          in: query
+          description: Return content as Markdown.
+          schema: { type: boolean }
+        - name: return_page_source
+          in: query
+          description: Return the pre-JavaScript HTML source.
           schema: { type: boolean }
         - name: extract_rules
           in: query
-          description: JSON-encoded extraction rules (CSS selectors).
+          description: JSON-encoded extraction rules (CSS or XPath selectors).
+          schema: { type: string }
+        - name: ai_query
+          in: query
+          description: Natural-language instruction for AI-powered data extraction.
+          schema: { type: string }
+        - name: ai_extract_rules
+          in: query
+          description: JSON-encoded AI extraction rules mapping field names to natural-language descriptions.
           schema: { type: string }
       responses:
         "200":
-          description: HTML, screenshot bytes, or JSON wrapper depending on params.
+          description: HTML, screenshot bytes, JSON wrapper, text, or markdown depending on params.
           content:
             text/html:
+              schema: { type: string }
+            text/plain:
               schema: { type: string }
             image/png:
               schema: { type: string, format: binary }
             application/json:
-              schema: { type: object, additionalProperties: true }
+              schema:
+                $ref: "#/components/schemas/JsonResponse"
+        "400":
+          description: Invalid parameters or unsupported URL.
+        "401":
+          description: Missing or invalid API key.
+        "402":
+          description: Out of API credits.
+        "404":
+          description: Target page not found.
+        "429":
+          description: Concurrency limit exceeded.
+        "500":
+          description: Render error or upstream failure.
     post:
-      summary: Scrape a URL with a POST body
+      summary: Scrape a URL with a POST Body
+      description: |
+        Same as the GET variant but accepts a request body that is forwarded to
+        the target URL as either form-encoded data or JSON.
       operationId: scrapePost
       tags: [HTML API]
       parameters:
@@ -94,6 +169,15 @@ paths:
           in: query
           required: true
           schema: { type: string, format: uri }
+        - name: render_js
+          in: query
+          schema: { type: boolean }
+        - name: premium_proxy
+          in: query
+          schema: { type: boolean }
+        - name: country_code
+          in: query
+          schema: { type: string }
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -102,7 +186,80 @@ paths:
             schema: { type: object, additionalProperties: true }
       responses:
         "200":
-          description: Response from the target site.
+          description: Response forwarded from the target site.
+  /google:
+    get:
+      summary: Run a Google Search and Return Structured SERP JSON
+      description: |
+        Execute a Google query via ScrapingBee's dedicated Search API and receive
+        structured JSON results: organic listings, knowledge graph, featured
+        snippets, news, maps, image results, related searches, and ads.
+      operationId: googleSearch
+      tags: [Google Search API]
+      parameters:
+        - $ref: "#/components/parameters/ApiKey"
+        - name: search
+          in: query
+          required: true
+          description: Query string as typed into the Google search bar.
+          schema: { type: string }
+        - name: search_type
+          in: query
+          description: Which Google vertical to query.
+          schema:
+            type: string
+            enum: [classic, news, maps, images]
+            default: classic
+        - name: country_code
+          in: query
+          description: ISO 3166-1 alpha-2 country code for result localization.
+          schema: { type: string }
+        - name: language
+          in: query
+          description: Result language (hl parameter equivalent).
+          schema: { type: string }
+        - name: nb_results
+          in: query
+          description: Number of results to return.
+          schema: { type: integer, default: 10 }
+        - name: page
+          in: query
+          description: Result page number.
+          schema: { type: integer, default: 1 }
+        - name: device
+          in: query
+          description: Render Google as desktop or mobile.
+          schema:
+            type: string
+            enum: [desktop, mobile]
+            default: desktop
+        - name: extra_params
+          in: query
+          description: Additional Google query parameters (gl, hl, num, start, etc.).
+          schema: { type: string }
+        - name: light_request
+          in: query
+          description: Use the cheaper, faster light request mode.
+          schema: { type: boolean }
+        - name: full_html
+          in: query
+          description: Return the full SERP HTML alongside the structured payload.
+          schema: { type: boolean }
+      responses:
+        "200":
+          description: Structured Google SERP response.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GoogleSerpResponse"
+        "400":
+          description: Invalid search parameters.
+        "401":
+          description: Missing or invalid API key.
+        "402":
+          description: Out of API credits.
+        "429":
+          description: Concurrency limit exceeded.
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -117,3 +274,91 @@ components:
       required: true
       description: ScrapingBee account key.
       schema: { type: string }
+  schemas:
+    JsonResponse:
+      type: object
+      description: Wrapper response when json_response=true is used.
+      properties:
+        body:
+          type: string
+          description: Rendered page body (HTML, text, or markdown depending on params).
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Response headers from the target site.
+        cookies:
+          type: array
+          items: { type: string }
+        type:
+          type: string
+          description: Content type returned (e.g. text/html, image/png).
+        "metadata":
+          type: object
+          additionalProperties: true
+          description: ScrapingBee metadata (resolved URL, credits used, etc.).
+    GoogleSerpResponse:
+      type: object
+      description: Structured Google SERP payload.
+      properties:
+        meta_data:
+          type: object
+          additionalProperties: true
+          description: Search metadata (query, location, total results, request URL).
+        organic_results:
+          type: array
+          items:
+            $ref: "#/components/schemas/GoogleOrganicResult"
+        knowledge_graph:
+          type: object
+          additionalProperties: true
+        featured_snippet:
+          type: object
+          additionalProperties: true
+        related_queries:
+          type: array
+          items: { type: string }
+        people_also_ask:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        news_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        local_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        image_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        ads:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    GoogleOrganicResult:
+      type: object
+      properties:
+        position:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        displayed_url:
+          type: string
+        description:
+          type: string
+        sitelinks:
+          type: array
+          items:
+            type: object
+            additionalProperties: true

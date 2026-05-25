@@ -1,46 +1,85 @@
 aid: scrapingbee
 name: ScrapingBee
 description: >-
-  ScrapingBee is a web scraping API that handles headless browsers, proxy
-  rotation, and CAPTCHAs so developers can extract data from any website
-  with a single API call. Features include JavaScript rendering, AI-powered
-  data extraction, and screenshot capabilities.
+  ScrapingBee is a France-based web scraping API that handles headless browsers,
+  proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
+  extract data from any website with a single API call. The platform exposes a
+  unified HTML scraping endpoint alongside dedicated APIs for Google Search,
+  Amazon, Walmart, YouTube, and ChatGPT, with JavaScript rendering, AI-powered
+  data extraction, screenshots, and an MCP server for agentic workflows.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - AI Extraction
+  - Anti-Bot
   - Data Aggregation
   - Data Extraction
   - Headless Browser
+  - JavaScript Rendering
   - Proxy Rotation
+  - Screenshots
+  - Search Engine
   - Web Scraping
 url: >-
   https://raw.githubusercontent.com/api-evangelist/scrapingbee/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-05-19'
+modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
   - aid: scrapingbee:html-api
     name: ScrapingBee HTML API
     description: >-
-      The HTML API extracts rendered HTML from any website using headless
-      browsers with automatic proxy rotation. Supports JavaScript rendering
-      (costs 5 credits per request), custom wait times, CSS selectors, and
-      request headers. Returns full page HTML ready for parsing.
+      The core HTML API extracts rendered HTML, screenshots, or structured JSON
+      from any website using headless Chrome with automatic proxy rotation.
+      Supports JavaScript rendering (5 credits per request), js_scenario for
+      automated clicks/scroll/form-fill interactions, wait/wait_for/wait_browser
+      timing controls, residential premium_proxy (10-25 credits), stealth_proxy
+      pool (75 credits), country_code geotargeting, custom cookies and headers,
+      and AI-powered extraction via the ai_query parameter or CSS/XPath
+      extract_rules.
     humanURL: https://www.scrapingbee.com
     baseURL: https://app.scrapingbee.com/api/v1
     tags:
       - HTML Extraction
       - JavaScript Rendering
+      - Headless Browser
       - Web Scraping
+      - Screenshots
     properties:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/
+      - type: GettingStarted
+        url: https://www.scrapingbee.com/documentation/#quickstart
+      - type: Authentication
+        url: https://www.scrapingbee.com/documentation/#authentication
+      - type: OpenAPI
+        url: openapi/scrapingbee-openapi.yml
+  - aid: scrapingbee:google-search-api
+    name: ScrapingBee Google Search API
+    description: >-
+      The Google Search API returns structured JSON SERP data covering organic
+      results, knowledge graph, featured snippets, related searches, news,
+      maps, image results, and ads. Supports search_type (web, news, maps,
+      images), country_code localization, light_request mode for cheaper
+      faster queries, full_html alongside structured output, and any extra
+      Google query parameters (gl, hl, num, start).
+    humanURL: https://www.scrapingbee.com/documentation/google/
+    baseURL: https://app.scrapingbee.com/api/v1/google
+    tags:
+      - Search Engine
+      - SERP
+      - Google
+      - Structured Data
+    properties:
+      - type: Documentation
+        url: https://www.scrapingbee.com/documentation/google/
   - aid: scrapingbee:data-extraction-api
     name: ScrapingBee Data Extraction API
     description: >-
-      The Data Extraction API allows you to add extraction rules to API
-      calls to extract structured data from pages without parsing HTML on
-      your side. Supports CSS selectors and AI-powered extraction where
+      The Data Extraction API layers structured-data extraction rules on top
+      of HTML API calls so callers receive parsed JSON instead of raw HTML.
+      Supports CSS selectors, XPath expressions, nested objects and arrays,
+      attribute extraction, and AI-powered natural-language extraction where
       you describe what you need in plain English.
     humanURL: https://www.scrapingbee.com/features/data-extraction/
     baseURL: https://app.scrapingbee.com/api/v1
@@ -48,31 +87,50 @@ apis:
       - AI Extraction
       - Data Extraction
       - Structured Data
+      - CSS Selectors
     properties:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/data-extraction/
   - aid: scrapingbee:ai-extraction-api
     name: ScrapingBee AI Web Scraping API
     description: >-
-      The AI Web Scraping API leverages artificial intelligence to extract
-      the right content from web pages by expressing what you need in plain
-      English, without requiring CSS selectors or complex parsing logic.
+      The AI Web Scraping API leverages LLM-driven extraction to lift content
+      from web pages by expressing what you need in plain English via the
+      ai_query parameter, with no CSS selectors, XPath, or parsing code
+      required. Supports JSON and Markdown output for downstream agentic use.
     humanURL: https://www.scrapingbee.com/features/ai-web-scraping-api/
     baseURL: https://app.scrapingbee.com/api/v1
     tags:
       - AI
+      - LLM
       - Data Extraction
       - Natural Language
     properties:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/
+  - aid: scrapingbee:screenshot-api
+    name: ScrapingBee Screenshot API
+    description: >-
+      The Screenshot API captures full-page or viewport screenshots of any
+      URL using headless Chrome, with control over viewport size, full_page
+      rendering, image format, and combination with JavaScript scenarios for
+      capturing post-interaction states.
+    humanURL: https://www.scrapingbee.com/features/screenshot-api/
+    baseURL: https://app.scrapingbee.com/api/v1
+    tags:
+      - Screenshots
+      - Headless Browser
+      - Image Capture
+    properties:
+      - type: Documentation
+        url: https://www.scrapingbee.com/documentation/#screenshot
 common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/scrapingbee
   - type: Website
     url: https://www.scrapingbee.com
   - type: Documentation
     url: https://www.scrapingbee.com/documentation/
+  - type: GettingStarted
+    url: https://www.scrapingbee.com/documentation/#quickstart
   - type: Pricing
     url: https://www.scrapingbee.com/pricing/
   - type: Blog
@@ -83,17 +141,40 @@ common:
     url: https://app.scrapingbee.com/account/login
   - type: Support
     url: https://help.scrapingbee.com
+  - type: Status
+    url: https://status.scrapingbee.com
+  - type: ChangeLog
+    url: https://www.scrapingbee.com/changelog/
+  - type: TermsOfService
+    url: https://www.scrapingbee.com/terms-and-conditions/
+  - type: PrivacyPolicy
+    url: https://www.scrapingbee.com/privacy-policy/
   - type: GitHubOrganization
     url: https://github.com/ScrapingBee
-  - type: Python SDK
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/scrapingbee
+  - type: PythonSDK
     url: https://github.com/ScrapingBee/scrapingbee-python
-  - type: Node.js SDK
+  - type: NodeSDK
     url: https://github.com/ScrapingBee/scrapingbee-node
-  - type: Postman Collection
+  - type: CLI
+    url: https://github.com/ScrapingBee/scrapingbee-cli
+  - type: PostmanCollection
     url: https://www.postman.com/api-evangelist/scraping/documentation/ygpc6xm/scrapingbee
-  - name: MCP Server
+  - type: MCPServer
     url: https://github.com/ScrapingBee/mcp-server
-    type: MCPServer
+  - type: Integration
+    url: https://github.com/ScrapingBee/scrapingbee-n8n
+  - type: Integration
+    url: https://github.com/ScrapingBee/scrapy-scrapingbee
+  - type: Integration
+    url: https://github.com/ScrapingBee/langchain-scrapingbee
+  - type: Plans
+    url: plans/scrapingbee-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/scrapingbee-rate-limits.yml
+  - type: FinOps
+    url: finops/scrapingbee-finops.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
