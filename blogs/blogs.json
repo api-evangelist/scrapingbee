@@ -2,12 +2,20 @@
   "repo": "scrapingbee",
   "feeds": [
     {
-      "source": "https://www.scrapingbee.com/blog/",
+      "source": "https://www.scrapingbee.com/blog/index.xml",
       "feed_url": "https://www.scrapingbee.com/blog/index.xml",
-      "title": "ScrapingBee's Blog on ScrapingBee \u2013 The Best Web Scraping API",
-      "saved": 47
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.scrapingbee.com/pricing/",
+      "feed_url": "https://www.scrapingbee.com/pricing/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 60,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 69,
+  "fetched": "2026-06-01T23:35:02Z"
 }
