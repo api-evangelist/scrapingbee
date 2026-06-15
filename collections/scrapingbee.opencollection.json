@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ScrapingBee API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HTML API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Scrape a URL and Return HTML, Screenshot, or JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.scrapingbee.com/api/v1/",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "ScrapingBee account key."
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "URL to scrape (must be URL-encoded, include scheme)."
+              },
+              {
+                "name": "render_js",
+                "value": "",
+                "type": "query",
+                "description": "Execute JavaScript via headless browser. Defaults to true (5 credits)."
+              },
+              {
+                "name": "js_scenario",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits)."
+              },
+              {
+                "name": "wait",
+                "value": "",
+                "type": "query",
+                "description": "Additional rendering delay in milliseconds."
+              },
+              {
+                "name": "wait_for",
+                "value": "",
+                "type": "query",
+                "description": "CSS or XPath selector to wait for before returning."
+              },
+              {
+                "name": "wait_browser",
+                "value": "",
+                "type": "query",
+                "description": "Browser state condition to wait for."
+              },
+              {
+                "name": "premium_proxy",
+                "value": "",
+                "type": "query",
+                "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS)."
+              },
+              {
+                "name": "stealth_proxy",
+                "value": "",
+                "type": "query",
+                "description": "Use the stealth proxy pool for high-protection sites (75 credits)."
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 country code for proxy geolocation."
+              },
+              {
+                "name": "block_ads",
+                "value": "",
+                "type": "query",
+                "description": "Block advertisements during rendering."
+              },
+              {
+                "name": "block_resources",
+                "value": "",
+                "type": "query",
+                "description": "Block heavy resources (images, fonts, css) to speed up rendering."
+              },
+              {
+                "name": "cookies",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated cookie list to send with the request."
+              },
+              {
+                "name": "forward_headers",
+                "value": "",
+                "type": "query",
+                "description": "Forward Spb-* prefixed headers to the target site."
+              },
+              {
+                "name": "screenshot",
+                "value": "",
+                "type": "query",
+                "description": "Return a screenshot of the page instead of HTML."
+              },
+              {
+                "name": "screenshot_full_page",
+                "value": "",
+                "type": "query",
+                "description": "Capture a full-page screenshot, not just the viewport."
+              },
+              {
+                "name": "screenshot_selector",
+                "value": "",
+                "type": "query",
+                "description": "CSS selector to limit the screenshot region."
+              },
+              {
+                "name": "json_response",
+                "value": "",
+                "type": "query",
+                "description": "Wrap response in JSON format with metadata."
+              },
+              {
+                "name": "return_page_text",
+                "value": "",
+                "type": "query",
+                "description": "Return plain text content instead of HTML."
+              },
+              {
+                "name": "return_page_markdown",
+                "value": "",
+                "type": "query",
+                "description": "Return content as Markdown."
+              },
+              {
+                "name": "return_page_source",
+                "value": "",
+                "type": "query",
+                "description": "Return the pre-JavaScript HTML source."
+              },
+              {
+                "name": "extract_rules",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded extraction rules (CSS or XPath selectors)."
+              },
+              {
+                "name": "ai_query",
+                "value": "",
+                "type": "query",
+                "description": "Natural-language instruction for AI-powered data extraction."
+              },
+              {
+                "name": "ai_extract_rules",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions."
+              }
+            ]
+          },
+          "docs": "Fetch a target URL through ScrapingBee's headless browser and proxy network.\nReturns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text\ndepending on the parameters supplied.\n"
+        },
+        {
+          "info": {
+            "name": "Scrape a URL with a POST Body",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.scrapingbee.com/api/v1/",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "ScrapingBee account key."
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "render_js",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "premium_proxy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Same as the GET variant but accepts a request body that is forwarded to\nthe target URL as either form-encoded data or JSON.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Google Search API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run a Google Search and Return Structured SERP JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.scrapingbee.com/api/v1/google",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "ScrapingBee account key."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Query string as typed into the Google search bar."
+              },
+              {
+                "name": "search_type",
+                "value": "",
+                "type": "query",
+                "description": "Which Google vertical to query."
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code for result localization."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Result language (hl parameter equivalent)."
+              },
+              {
+                "name": "nb_results",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Result page number."
+              },
+              {
+                "name": "device",
+                "value": "",
+                "type": "query",
+                "description": "Render Google as desktop or mobile."
+              },
+              {
+                "name": "extra_params",
+                "value": "",
+                "type": "query",
+                "description": "Additional Google query parameters (gl, hl, num, start, etc.)."
+              },
+              {
+                "name": "light_request",
+                "value": "",
+                "type": "query",
+                "description": "Use the cheaper, faster light request mode."
+              },
+              {
+                "name": "full_html",
+                "value": "",
+                "type": "query",
+                "description": "Return the full SERP HTML alongside the structured payload."
+              }
+            ]
+          },
+          "docs": "Execute a Google query via ScrapingBee's dedicated Search API and receive\nstructured JSON results: organic listings, knowledge graph, featured\nsnippets, news, maps, image results, related searches, and ads.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
