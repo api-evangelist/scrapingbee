@@ -5,7 +5,7 @@
       "source": "https://www.scrapingbee.com/blog/index.xml",
       "feed_url": "https://www.scrapingbee.com/blog/index.xml",
       "title": "",
-      "saved": 5,
+      "saved": 9,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 78,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 95,
+  "fetched": "2026-06-27T12:03:07Z"
 }

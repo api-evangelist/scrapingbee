@@ -135,7 +135,7 @@ common:
     url: https://www.scrapingbee.com/pricing/
   - type: Blog
     url: https://www.scrapingbee.com/blog/
-  - type: SignUp
+  - type: Signup
     url: https://app.scrapingbee.com/account/register
   - type: Login
     url: https://app.scrapingbee.com/account/login
@@ -163,11 +163,11 @@ common:
     url: https://www.postman.com/api-evangelist/scraping/documentation/ygpc6xm/scrapingbee
   - type: MCPServer
     url: https://github.com/ScrapingBee/mcp-server
-  - type: Integration
+  - type: Integrations
     url: https://github.com/ScrapingBee/scrapingbee-n8n
-  - type: Integration
+  - type: Integrations
     url: https://github.com/ScrapingBee/scrapy-scrapingbee
-  - type: Integration
+  - type: Integrations
     url: https://github.com/ScrapingBee/langchain-scrapingbee
   - type: Plans
     url: plans/scrapingbee-plans-pricing.yml
