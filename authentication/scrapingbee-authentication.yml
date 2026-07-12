@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/scrapingbee-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: ScrapingBee account key, passed as a query parameter.
+  sources:
+  - openapi/scrapingbee-openapi.yml

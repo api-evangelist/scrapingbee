@@ -125,6 +125,10 @@ apis:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/#screenshot
 common:
+  - type: DomainSecurity
+    url: security/scrapingbee-domain-security.yml
+  - type: Authentication
+    url: authentication/scrapingbee-authentication.yml
   - type: Website
     url: https://www.scrapingbee.com
   - type: Documentation
