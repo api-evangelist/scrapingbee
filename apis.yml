@@ -125,6 +125,8 @@ apis:
       - type: Documentation
         url: https://www.scrapingbee.com/documentation/#screenshot
 common:
+  - type: AgenticAccess
+    url: agentic-access/scrapingbee-agentic-access.yml
   - type: DomainSecurity
     url: security/scrapingbee-domain-security.yml
   - type: Authentication
