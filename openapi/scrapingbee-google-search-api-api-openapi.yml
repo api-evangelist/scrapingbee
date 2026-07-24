@@ -1,0 +1,205 @@
+openapi: 3.1.0
+info:
+  title: ScrapingBee Google Search API API
+  description: 'ScrapingBee is a France-based web scraping API that handles headless browsers,
+
+    proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
+
+    extract data from any website with a single API call. This OpenAPI describes
+
+    the core HTML scraping endpoint and the dedicated Google Search SERP API.
+
+    Source: https://www.scrapingbee.com/documentation/
+
+    '
+  version: '1.0'
+  contact:
+    name: ScrapingBee Support
+    url: https://help.scrapingbee.com
+  license:
+    name: ScrapingBee Terms of Service
+    url: https://www.scrapingbee.com/terms-and-conditions/
+servers:
+- url: https://app.scrapingbee.com/api/v1
+  description: ScrapingBee API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Google Search API
+  description: Structured Google SERP results (web, news, maps, images).
+paths:
+  /google:
+    get:
+      summary: Run a Google Search and Return Structured SERP JSON
+      description: 'Execute a Google query via ScrapingBee''s dedicated Search API and receive
+
+        structured JSON results: organic listings, knowledge graph, featured
+
+        snippets, news, maps, image results, related searches, and ads.
+
+        '
+      operationId: googleSearch
+      tags:
+      - Google Search API
+      parameters:
+      - $ref: '#/components/parameters/ApiKey'
+      - name: search
+        in: query
+        required: true
+        description: Query string as typed into the Google search bar.
+        schema:
+          type: string
+      - name: search_type
+        in: query
+        description: Which Google vertical to query.
+        schema:
+          type: string
+          enum:
+          - classic
+          - news
+          - maps
+          - images
+          default: classic
+      - name: country_code
+        in: query
+        description: ISO 3166-1 alpha-2 country code for result localization.
+        schema:
+          type: string
+      - name: language
+        in: query
+        description: Result language (hl parameter equivalent).
+        schema:
+          type: string
+      - name: nb_results
+        in: query
+        description: Number of results to return.
+        schema:
+          type: integer
+          default: 10
+      - name: page
+        in: query
+        description: Result page number.
+        schema:
+          type: integer
+          default: 1
+      - name: device
+        in: query
+        description: Render Google as desktop or mobile.
+        schema:
+          type: string
+          enum:
+          - desktop
+          - mobile
+          default: desktop
+      - name: extra_params
+        in: query
+        description: Additional Google query parameters (gl, hl, num, start, etc.).
+        schema:
+          type: string
+      - name: light_request
+        in: query
+        description: Use the cheaper, faster light request mode.
+        schema:
+          type: boolean
+      - name: full_html
+        in: query
+        description: Return the full SERP HTML alongside the structured payload.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Structured Google SERP response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleSerpResponse'
+        '400':
+          description: Invalid search parameters.
+        '401':
+          description: Missing or invalid API key.
+        '402':
+          description: Out of API credits.
+        '429':
+          description: Concurrency limit exceeded.
+components:
+  schemas:
+    GoogleSerpResponse:
+      type: object
+      description: Structured Google SERP payload.
+      properties:
+        meta_data:
+          type: object
+          additionalProperties: true
+          description: Search metadata (query, location, total results, request URL).
+        organic_results:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleOrganicResult'
+        knowledge_graph:
+          type: object
+          additionalProperties: true
+        featured_snippet:
+          type: object
+          additionalProperties: true
+        related_queries:
+          type: array
+          items:
+            type: string
+        people_also_ask:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        news_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        local_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        image_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        ads:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    GoogleOrganicResult:
+      type: object
+      properties:
+        position:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        displayed_url:
+          type: string
+        description:
+          type: string
+        sitelinks:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: ScrapingBee account key, passed as a query parameter.

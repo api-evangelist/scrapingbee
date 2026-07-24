@@ -1,0 +1,279 @@
+openapi: 3.1.0
+info:
+  title: ScrapingBee Google Search API HTML API API
+  description: 'ScrapingBee is a France-based web scraping API that handles headless browsers,
+
+    proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
+
+    extract data from any website with a single API call. This OpenAPI describes
+
+    the core HTML scraping endpoint and the dedicated Google Search SERP API.
+
+    Source: https://www.scrapingbee.com/documentation/
+
+    '
+  version: '1.0'
+  contact:
+    name: ScrapingBee Support
+    url: https://help.scrapingbee.com
+  license:
+    name: ScrapingBee Terms of Service
+    url: https://www.scrapingbee.com/terms-and-conditions/
+servers:
+- url: https://app.scrapingbee.com/api/v1
+  description: ScrapingBee API
+security:
+- ApiKeyAuth: []
+tags:
+- name: HTML API
+  description: Headless-browser scraping with proxy rotation, screenshots, and AI extraction.
+paths:
+  /:
+    get:
+      summary: Scrape a URL and Return HTML, Screenshot, or JSON
+      description: 'Fetch a target URL through ScrapingBee''s headless browser and proxy network.
+
+        Returns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text
+
+        depending on the parameters supplied.
+
+        '
+      operationId: scrape
+      tags:
+      - HTML API
+      parameters:
+      - $ref: '#/components/parameters/ApiKey'
+      - name: url
+        in: query
+        required: true
+        description: URL to scrape (must be URL-encoded, include scheme).
+        schema:
+          type: string
+          format: uri
+      - name: render_js
+        in: query
+        description: Execute JavaScript via headless browser. Defaults to true (5 credits).
+        schema:
+          type: boolean
+          default: true
+      - name: js_scenario
+        in: query
+        description: JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).
+        schema:
+          type: string
+      - name: wait
+        in: query
+        description: Additional rendering delay in milliseconds.
+        schema:
+          type: integer
+      - name: wait_for
+        in: query
+        description: CSS or XPath selector to wait for before returning.
+        schema:
+          type: string
+      - name: wait_browser
+        in: query
+        description: Browser state condition to wait for.
+        schema:
+          type: string
+          enum:
+          - domcontentloaded
+          - load
+          - networkidle0
+          - networkidle2
+      - name: premium_proxy
+        in: query
+        description: Use residential premium proxy pool (10 credits without JS, 25 with JS).
+        schema:
+          type: boolean
+      - name: stealth_proxy
+        in: query
+        description: Use the stealth proxy pool for high-protection sites (75 credits).
+        schema:
+          type: boolean
+      - name: country_code
+        in: query
+        description: ISO 3166-1 country code for proxy geolocation.
+        schema:
+          type: string
+      - name: block_ads
+        in: query
+        description: Block advertisements during rendering.
+        schema:
+          type: boolean
+      - name: block_resources
+        in: query
+        description: Block heavy resources (images, fonts, css) to speed up rendering.
+        schema:
+          type: boolean
+      - name: cookies
+        in: query
+        description: Semicolon-separated cookie list to send with the request.
+        schema:
+          type: string
+      - name: forward_headers
+        in: query
+        description: Forward Spb-* prefixed headers to the target site.
+        schema:
+          type: boolean
+      - name: screenshot
+        in: query
+        description: Return a screenshot of the page instead of HTML.
+        schema:
+          type: boolean
+      - name: screenshot_full_page
+        in: query
+        description: Capture a full-page screenshot, not just the viewport.
+        schema:
+          type: boolean
+      - name: screenshot_selector
+        in: query
+        description: CSS selector to limit the screenshot region.
+        schema:
+          type: string
+      - name: json_response
+        in: query
+        description: Wrap response in JSON format with metadata.
+        schema:
+          type: boolean
+      - name: return_page_text
+        in: query
+        description: Return plain text content instead of HTML.
+        schema:
+          type: boolean
+      - name: return_page_markdown
+        in: query
+        description: Return content as Markdown.
+        schema:
+          type: boolean
+      - name: return_page_source
+        in: query
+        description: Return the pre-JavaScript HTML source.
+        schema:
+          type: boolean
+      - name: extract_rules
+        in: query
+        description: JSON-encoded extraction rules (CSS or XPath selectors).
+        schema:
+          type: string
+      - name: ai_query
+        in: query
+        description: Natural-language instruction for AI-powered data extraction.
+        schema:
+          type: string
+      - name: ai_extract_rules
+        in: query
+        description: JSON-encoded AI extraction rules mapping field names to natural-language descriptions.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: HTML, screenshot bytes, JSON wrapper, text, or markdown depending on params.
+          content:
+            text/html:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+            image/png:
+              schema:
+                type: string
+                format: binary
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonResponse'
+        '400':
+          description: Invalid parameters or unsupported URL.
+        '401':
+          description: Missing or invalid API key.
+        '402':
+          description: Out of API credits.
+        '404':
+          description: Target page not found.
+        '429':
+          description: Concurrency limit exceeded.
+        '500':
+          description: Render error or upstream failure.
+    post:
+      summary: Scrape a URL with a POST Body
+      description: 'Same as the GET variant but accepts a request body that is forwarded to
+
+        the target URL as either form-encoded data or JSON.
+
+        '
+      operationId: scrapePost
+      tags:
+      - HTML API
+      parameters:
+      - $ref: '#/components/parameters/ApiKey'
+      - name: url
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uri
+      - name: render_js
+        in: query
+        schema:
+          type: boolean
+      - name: premium_proxy
+        in: query
+        schema:
+          type: boolean
+      - name: country_code
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: true
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Response forwarded from the target site.
+components:
+  schemas:
+    JsonResponse:
+      type: object
+      description: Wrapper response when json_response=true is used.
+      properties:
+        body:
+          type: string
+          description: Rendered page body (HTML, text, or markdown depending on params).
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Response headers from the target site.
+        cookies:
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Content type returned (e.g. text/html, image/png).
+        metadata:
+          type: object
+          additionalProperties: true
+          description: ScrapingBee metadata (resolved URL, credits used, etc.).
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+      description: ScrapingBee account key, passed as a query parameter.
