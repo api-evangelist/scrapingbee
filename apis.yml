@@ -8,7 +8,20 @@ description: >-
   Amazon, Walmart, YouTube, and ChatGPT, with JavaScript rendering, AI-powered
   data extraction, screenshots, and an MCP server for agentic workflows.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/scrapingbee.png
 tags:
   - AI Extraction
   - Anti-Bot
@@ -26,105 +39,106 @@ created: '2026-03-26'
 modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
-  - aid: scrapingbee:html-api
-    name: ScrapingBee HTML API
-    description: >-
-      The core HTML API extracts rendered HTML, screenshots, or structured JSON
-      from any website using headless Chrome with automatic proxy rotation.
-      Supports JavaScript rendering (5 credits per request), js_scenario for
-      automated clicks/scroll/form-fill interactions, wait/wait_for/wait_browser
-      timing controls, residential premium_proxy (10-25 credits), stealth_proxy
-      pool (75 credits), country_code geotargeting, custom cookies and headers,
-      and AI-powered extraction via the ai_query parameter or CSS/XPath
-      extract_rules.
-    humanURL: https://www.scrapingbee.com
-    baseURL: https://app.scrapingbee.com/api/v1
-    tags:
-      - HTML Extraction
-      - JavaScript Rendering
-      - Headless Browser
-      - Web Scraping
-      - Screenshots
-    properties:
-      - type: Documentation
-        url: https://www.scrapingbee.com/documentation/
-      - type: GettingStarted
-        url: https://www.scrapingbee.com/documentation/#quickstart
-      - type: Authentication
-        url: https://www.scrapingbee.com/documentation/#authentication
-      - type: OpenAPI
-        url: openapi/scrapingbee-openapi.yml
-  - aid: scrapingbee:google-search-api
-    name: ScrapingBee Google Search API
-    description: >-
-      The Google Search API returns structured JSON SERP data covering organic
-      results, knowledge graph, featured snippets, related searches, news,
-      maps, image results, and ads. Supports search_type (web, news, maps,
-      images), country_code localization, light_request mode for cheaper
-      faster queries, full_html alongside structured output, and any extra
-      Google query parameters (gl, hl, num, start).
-    humanURL: https://www.scrapingbee.com/documentation/google/
-    baseURL: https://app.scrapingbee.com/api/v1/google
-    tags:
-      - Search Engine
-      - SERP
-      - Google
-      - Structured Data
-    properties:
-      - type: Documentation
-        url: https://www.scrapingbee.com/documentation/google/
-  - aid: scrapingbee:data-extraction-api
-    name: ScrapingBee Data Extraction API
-    description: >-
-      The Data Extraction API layers structured-data extraction rules on top
-      of HTML API calls so callers receive parsed JSON instead of raw HTML.
-      Supports CSS selectors, XPath expressions, nested objects and arrays,
-      attribute extraction, and AI-powered natural-language extraction where
-      you describe what you need in plain English.
-    humanURL: https://www.scrapingbee.com/features/data-extraction/
-    baseURL: https://app.scrapingbee.com/api/v1
-    tags:
-      - AI Extraction
-      - Data Extraction
-      - Structured Data
-      - CSS Selectors
-    properties:
-      - type: Documentation
-        url: https://www.scrapingbee.com/documentation/data-extraction/
-  - aid: scrapingbee:ai-extraction-api
-    name: ScrapingBee AI Web Scraping API
-    description: >-
-      The AI Web Scraping API leverages LLM-driven extraction to lift content
-      from web pages by expressing what you need in plain English via the
-      ai_query parameter, with no CSS selectors, XPath, or parsing code
-      required. Supports JSON and Markdown output for downstream agentic use.
-    humanURL: https://www.scrapingbee.com/features/ai-web-scraping-api/
-    baseURL: https://app.scrapingbee.com/api/v1
-    tags:
-      - AI
-      - LLM
-      - Data Extraction
-      - Natural Language
-    properties:
-      - type: Documentation
-        url: https://www.scrapingbee.com/documentation/
-  - aid: scrapingbee:screenshot-api
-    name: ScrapingBee Screenshot API
-    description: >-
-      The Screenshot API captures full-page or viewport screenshots of any
-      URL using headless Chrome, with control over viewport size, full_page
-      rendering, image format, and combination with JavaScript scenarios for
-      capturing post-interaction states.
-    humanURL: https://www.scrapingbee.com/features/screenshot-api/
-    baseURL: https://app.scrapingbee.com/api/v1
-    tags:
-      - Screenshots
-      - Headless Browser
-      - Image Capture
-    properties:
-      - type: Documentation
-        url: https://www.scrapingbee.com/documentation/#screenshot
+- aid: scrapingbee:google-search-api
+  name: ScrapingBee Google Search API
+  description: >-
+    The Google Search API returns structured JSON SERP data covering organic results, knowledge graph,
+    featured snippets, related searches, news, maps, image results, and ads. Supports search_type (web,
+    news, maps, images), country_code localization, light_request mode for cheaper faster queries, full_html
+    alongside structured output, and any extra Google query parameters (gl, hl, num, start).
+  humanURL: https://www.scrapingbee.com/documentation/google/
+  baseURL: https://app.scrapingbee.com/api/v1/google
+  tags:
+  - Search Engine
+  - SERP
+  - Google
+  - Structured Data
+  properties:
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/google/
+- aid: scrapingbee:data-extraction-api
+  name: ScrapingBee Data Extraction API
+  description: >-
+    The Data Extraction API layers structured-data extraction rules on top of HTML API calls so callers
+    receive parsed JSON instead of raw HTML. Supports CSS selectors, XPath expressions, nested objects
+    and arrays, attribute extraction, and AI-powered natural-language extraction where you describe what
+    you need in plain English.
+  humanURL: https://www.scrapingbee.com/features/data-extraction/
+  baseURL: https://app.scrapingbee.com/api/v1
+  tags:
+  - AI Extraction
+  - Data Extraction
+  - Structured Data
+  - CSS Selectors
+  properties:
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/data-extraction/
+- aid: scrapingbee:ai-extraction-api
+  name: ScrapingBee AI Web Scraping API
+  description: >-
+    The AI Web Scraping API leverages LLM-driven extraction to lift content from web pages by expressing
+    what you need in plain English via the ai_query parameter, with no CSS selectors, XPath, or parsing
+    code required. Supports JSON and Markdown output for downstream agentic use.
+  humanURL: https://www.scrapingbee.com/features/ai-web-scraping-api/
+  baseURL: https://app.scrapingbee.com/api/v1
+  tags:
+  - AI
+  - LLM
+  - Data Extraction
+  - Natural Language
+  properties:
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/
+- aid: scrapingbee:screenshot-api
+  name: ScrapingBee Screenshot API
+  description: >-
+    The Screenshot API captures full-page or viewport screenshots of any URL using headless Chrome, with
+    control over viewport size, full_page rendering, image format, and combination with JavaScript scenarios
+    for capturing post-interaction states.
+  humanURL: https://www.scrapingbee.com/features/screenshot-api/
+  baseURL: https://app.scrapingbee.com/api/v1
+  tags:
+  - Screenshots
+  - Headless Browser
+  - Image Capture
+  properties:
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/#screenshot
+- aid: scrapingbee:scrapingbee-google-search-api-api
+  name: ScrapingBee Google Search API API
+  description: Structured Google SERP results (web, news, maps, images).
+  humanURL: https://www.scrapingbee.com
+  baseURL: https://app.scrapingbee.com/api/v1
+  tags:
+  - Google Search API
+  properties:
+  - type: OpenAPI
+    url: openapi/scrapingbee-google-search-api-api-openapi.yml
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/
+  - type: GettingStarted
+    url: https://www.scrapingbee.com/documentation/#quickstart
+  - type: Authentication
+    url: https://www.scrapingbee.com/documentation/#authentication
+- aid: scrapingbee:scrapingbee-html-api-api
+  name: ScrapingBee HTML API API
+  description: Headless-browser scraping with proxy rotation, screenshots, and AI extraction.
+  humanURL: https://www.scrapingbee.com
+  baseURL: https://app.scrapingbee.com/api/v1
+  tags:
+  - HTML API
+  properties:
+  - type: OpenAPI
+    url: openapi/scrapingbee-html-api-api-openapi.yml
+  - type: Documentation
+    url: https://www.scrapingbee.com/documentation/
+  - type: GettingStarted
+    url: https://www.scrapingbee.com/documentation/#quickstart
+  - type: Authentication
+    url: https://www.scrapingbee.com/documentation/#authentication
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/scrapingbee/overview
   - type: AgenticAccess
     url: agentic-access/scrapingbee-agentic-access.yml
   - type: DomainSecurity
