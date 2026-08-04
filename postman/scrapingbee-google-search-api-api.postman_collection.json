@@ -1,0 +1,567 @@
+{
+  "info": {
+    "_postman_id": "542872fd-a63c-4ac2-bcf2-cdab0c897678",
+    "name": "ScrapingBee Google Search API API",
+    "description": "ScrapingBee is a France-based web scraping API that handles headless browsers,\nproxy rotation, anti-bot defenses, and CAPTCHA solving so developers can\nextract data from any website with a single API call. This OpenAPI describes\nthe core HTML scraping endpoint and the dedicated Google Search SERP API.\nSource: https://www.scrapingbee.com/documentation/\n\n\nContact Support:\n Name: ScrapingBee Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:28.000Z",
+    "updatedAt": "2026-07-28T02:51:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-542872fd-a63c-4ac2-bcf2-cdab0c897678"
+  },
+  "item": [
+    {
+      "name": "google",
+      "item": [
+        {
+          "name": "Run a Google Search and Return Structured SERP JSON",
+          "id": "3b98258a-626e-42a7-bbac-d18fe45ca739",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/google?api_key=<string>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "google"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ScrapingBee account key.",
+                  "key": "api_key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Query string as typed into the Google search bar.",
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Which Google vertical to query.",
+                  "key": "search_type",
+                  "value": "classic"
+                },
+                {
+                  "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                  "key": "country_code",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Result language (hl parameter equivalent).",
+                  "key": "language",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return.",
+                  "key": "nb_results",
+                  "value": "10"
+                },
+                {
+                  "description": "Result page number.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Render Google as desktop or mobile.",
+                  "key": "device",
+                  "value": "desktop"
+                },
+                {
+                  "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                  "key": "extra_params",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Use the cheaper, faster light request mode.",
+                  "key": "light_request",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Return the full SERP HTML alongside the structured payload.",
+                  "key": "full_html",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Execute a Google query via ScrapingBee's dedicated Search API and receive\nstructured JSON results: organic listings, knowledge graph, featured\nsnippets, news, maps, image results, related searches, and ads.\n"
+          },
+          "response": [
+            {
+              "id": "1eec97fb-fcdd-471b-898a-c94466597cf8",
+              "name": "Structured Google SERP response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/google?api_key=<API Key>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Query string as typed into the Google search bar.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Which Google vertical to query.",
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Result language (hl parameter equivalent).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return.",
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Result page number.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Render Google as desktop or mobile.",
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use the cheaper, faster light request mode.",
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the full SERP HTML alongside the structured payload.",
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"meta_data\": {\n    \"mollit_12\": -69231067.0144956,\n    \"quis_a81\": \"labore dolore do\"\n  },\n  \"organic_results\": [\n    {\n      \"position\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"displayed_url\": \"<string>\",\n      \"description\": \"<string>\",\n      \"sitelinks\": [\n        {\n          \"mollit050\": 88523534,\n          \"essef7\": \"occaec\"\n        },\n        {\n          \"et_e6\": true,\n          \"pariatur194\": 33537987.159948424,\n          \"sint_b\": 93780532\n        }\n      ]\n    },\n    {\n      \"position\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"displayed_url\": \"<string>\",\n      \"description\": \"<string>\",\n      \"sitelinks\": [\n        {\n          \"nulla_2e\": -43462305,\n          \"in1\": false\n        },\n        {\n          \"Uta9d\": -69559597.74221765,\n          \"officia0a\": -62932345.544102475,\n          \"et_\": \"dolore commodo\"\n        }\n      ]\n    }\n  ],\n  \"knowledge_graph\": {\n    \"minim0ff\": true\n  },\n  \"featured_snippet\": {\n    \"Duis_7\": -47082341.87869245\n  },\n  \"related_queries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"people_also_ask\": [\n    {\n      \"voluptate_15a\": -17390918,\n      \"deserunt42a\": \"anim\"\n    },\n    {\n      \"consequatd9c\": false,\n      \"elit_3\": -18001859.83097525\n    }\n  ],\n  \"news_results\": [\n    {\n      \"adipisicing_7\": -61868434\n    },\n    {\n      \"cupidatataf\": true\n    }\n  ],\n  \"local_results\": [\n    {\n      \"aliqua_0d\": \"voluptate eu\"\n    },\n    {\n      \"ada\": -27875246.37061374,\n      \"tempore48\": true\n    }\n  ],\n  \"image_results\": [\n    {\n      \"dolore_72c\": -37932015,\n      \"ea322\": 86174037.95568866\n    },\n    {\n      \"fugiatf3f\": true\n    }\n  ],\n  \"ads\": [\n    {\n      \"Duis_7ac\": 82203272,\n      \"qui_cd_\": 51247839.49337667\n    },\n    {\n      \"eu_9d6\": 96438585,\n      \"veniam9\": -6079917.53545174\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:29.000Z",
+              "updatedAt": "2026-07-28T02:51:29.000Z",
+              "uid": "35240-1eec97fb-fcdd-471b-898a-c94466597cf8"
+            },
+            {
+              "id": "59938ed5-8236-42b7-8c24-3d2a541f15a2",
+              "name": "Invalid search parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/google?api_key=<API Key>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Query string as typed into the Google search bar.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Which Google vertical to query.",
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Result language (hl parameter equivalent).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return.",
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Result page number.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Render Google as desktop or mobile.",
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use the cheaper, faster light request mode.",
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the full SERP HTML alongside the structured payload.",
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:29.000Z",
+              "updatedAt": "2026-07-28T02:51:29.000Z",
+              "uid": "35240-59938ed5-8236-42b7-8c24-3d2a541f15a2"
+            },
+            {
+              "id": "4eefe2eb-7750-4dc5-99fc-5063880b3bb3",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/google?api_key=<API Key>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Query string as typed into the Google search bar.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Which Google vertical to query.",
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Result language (hl parameter equivalent).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return.",
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Result page number.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Render Google as desktop or mobile.",
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use the cheaper, faster light request mode.",
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the full SERP HTML alongside the structured payload.",
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:29.000Z",
+              "updatedAt": "2026-07-28T02:51:29.000Z",
+              "uid": "35240-4eefe2eb-7750-4dc5-99fc-5063880b3bb3"
+            },
+            {
+              "id": "bab90542-ee81-4c4b-b3ca-183ed61893bf",
+              "name": "Out of API credits.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/google?api_key=<API Key>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Query string as typed into the Google search bar.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Which Google vertical to query.",
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Result language (hl parameter equivalent).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return.",
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Result page number.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Render Google as desktop or mobile.",
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use the cheaper, faster light request mode.",
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the full SERP HTML alongside the structured payload.",
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:29.000Z",
+              "updatedAt": "2026-07-28T02:51:29.000Z",
+              "uid": "35240-bab90542-ee81-4c4b-b3ca-183ed61893bf"
+            },
+            {
+              "id": "95ff374b-60c1-404f-8b44-32a198c6d25d",
+              "name": "Concurrency limit exceeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/google?api_key=<API Key>&search=<string>&search_type=classic&country_code=<string>&language=<string>&nb_results=10&page=1&device=desktop&extra_params=<string>&light_request=<boolean>&full_html=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Query string as typed into the Google search bar.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Which Google vertical to query.",
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code for result localization.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Result language (hl parameter equivalent).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return.",
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Result page number.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Render Google as desktop or mobile.",
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "description": "Additional Google query parameters (gl, hl, num, start, etc.).",
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use the cheaper, faster light request mode.",
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the full SERP HTML alongside the structured payload.",
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:29.000Z",
+              "updatedAt": "2026-07-28T02:51:29.000Z",
+              "uid": "35240-95ff374b-60c1-404f-8b44-32a198c6d25d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:29.000Z",
+          "updatedAt": "2026-07-28T02:51:29.000Z",
+          "uid": "35240-3b98258a-626e-42a7-bbac-d18fe45ca739"
+        }
+      ],
+      "id": "313c89eb-4df3-41f1-82d0-b3b99eae025e",
+      "createdAt": "2026-07-28T02:51:29.000Z",
+      "updatedAt": "2026-07-28T02:51:29.000Z",
+      "uid": "35240-313c89eb-4df3-41f1-82d0-b3b99eae025e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.scrapingbee.com/api/v1"
+    }
+  ]
+}

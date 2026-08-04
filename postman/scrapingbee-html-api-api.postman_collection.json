@@ -1,0 +1,1400 @@
+{
+  "info": {
+    "_postman_id": "7cbc154e-ed54-4655-80ea-bcaa2d39093e",
+    "name": "ScrapingBee Google Search API HTML API API",
+    "description": "ScrapingBee is a France-based web scraping API that handles headless browsers,\nproxy rotation, anti-bot defenses, and CAPTCHA solving so developers can\nextract data from any website with a single API call. This OpenAPI describes\nthe core HTML scraping endpoint and the dedicated Google Search SERP API.\nSource: https://www.scrapingbee.com/documentation/\n\n\nContact Support:\n Name: ScrapingBee Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:44.000Z",
+    "updatedAt": "2026-07-28T02:51:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7cbc154e-ed54-4655-80ea-bcaa2d39093e"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Scrape a URL and Return HTML, Screenshot, or JSON",
+          "id": "dc0204f3-d4e8-4cf0-8f46-2abd8abff3d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?api_key=<string>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ScrapingBee account key.",
+                  "key": "api_key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                  "key": "url",
+                  "value": "<uri>"
+                },
+                {
+                  "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                  "key": "render_js",
+                  "value": "true"
+                },
+                {
+                  "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                  "key": "js_scenario",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Additional rendering delay in milliseconds.",
+                  "key": "wait",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "CSS or XPath selector to wait for before returning.",
+                  "key": "wait_for",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Browser state condition to wait for.",
+                  "key": "wait_browser",
+                  "value": "networkidle0"
+                },
+                {
+                  "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                  "key": "premium_proxy",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                  "key": "stealth_proxy",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "ISO 3166-1 country code for proxy geolocation.",
+                  "key": "country_code",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Block advertisements during rendering.",
+                  "key": "block_ads",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                  "key": "block_resources",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Semicolon-separated cookie list to send with the request.",
+                  "key": "cookies",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Forward Spb-* prefixed headers to the target site.",
+                  "key": "forward_headers",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Return a screenshot of the page instead of HTML.",
+                  "key": "screenshot",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Capture a full-page screenshot, not just the viewport.",
+                  "key": "screenshot_full_page",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "CSS selector to limit the screenshot region.",
+                  "key": "screenshot_selector",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Wrap response in JSON format with metadata.",
+                  "key": "json_response",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Return plain text content instead of HTML.",
+                  "key": "return_page_text",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Return content as Markdown.",
+                  "key": "return_page_markdown",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Return the pre-JavaScript HTML source.",
+                  "key": "return_page_source",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                  "key": "extract_rules",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Natural-language instruction for AI-powered data extraction.",
+                  "key": "ai_query",
+                  "value": "<string>"
+                },
+                {
+                  "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                  "key": "ai_extract_rules",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Fetch a target URL through ScrapingBee's headless browser and proxy network.\nReturns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text\ndepending on the parameters supplied.\n"
+          },
+          "response": [
+            {
+              "id": "477b2139-b68f-4fa0-bd6a-2263fb2a12a4",
+              "name": "HTML, screenshot bytes, JSON wrapper, text, or markdown depending on params.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"body\": \"<string>\",\n  \"headers\": {\n    \"est_a6a\": \"<string>\",\n    \"enim_a\": \"<string>\",\n    \"do08\": \"<string>\",\n    \"fugiat5ed\": \"<string>\"\n  },\n  \"cookies\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"type\": \"<string>\",\n  \"metadata\": {\n    \"ad_2\": 81175866.07417005\n  }\n}",
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-477b2139-b68f-4fa0-bd6a-2263fb2a12a4"
+            },
+            {
+              "id": "4b135753-a31f-4978-bbc8-3eec23c80fd4",
+              "name": "Invalid parameters or unsupported URL.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-4b135753-a31f-4978-bbc8-3eec23c80fd4"
+            },
+            {
+              "id": "f8a96a7b-2740-4c79-b47b-8b9e159a8b34",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-f8a96a7b-2740-4c79-b47b-8b9e159a8b34"
+            },
+            {
+              "id": "5c0e5f29-dcdb-4479-a4fa-b1b643f0ab11",
+              "name": "Out of API credits.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-5c0e5f29-dcdb-4479-a4fa-b1b643f0ab11"
+            },
+            {
+              "id": "f9ee85c0-1c1e-4156-ac9f-9da64b8ae1f4",
+              "name": "Target page not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-f9ee85c0-1c1e-4156-ac9f-9da64b8ae1f4"
+            },
+            {
+              "id": "8c349b95-1c09-4b42-a4fd-59d47fe0e1cc",
+              "name": "Concurrency limit exceeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-8c349b95-1c09-4b42-a4fd-59d47fe0e1cc"
+            },
+            {
+              "id": "53842be5-9bd9-4b87-b7e7-cad9e5fda570",
+              "name": "Render error or upstream failure.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=true&js_scenario=<string>&wait=<integer>&wait_for=<string>&wait_browser=networkidle0&premium_proxy=<boolean>&stealth_proxy=<boolean>&country_code=<string>&block_ads=<boolean>&block_resources=<boolean>&cookies=<string>&forward_headers=<boolean>&screenshot=<boolean>&screenshot_full_page=<boolean>&screenshot_selector=<string>&json_response=<boolean>&return_page_text=<boolean>&return_page_markdown=<boolean>&return_page_source=<boolean>&extract_rules=<string>&ai_query=<string>&ai_extract_rules=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) URL to scrape (must be URL-encoded, include scheme).",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Execute JavaScript via headless browser. Defaults to true (5 credits).",
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits).",
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional rendering delay in milliseconds.",
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "CSS or XPath selector to wait for before returning.",
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Browser state condition to wait for.",
+                      "key": "wait_browser",
+                      "value": "networkidle0"
+                    },
+                    {
+                      "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS).",
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Use the stealth proxy pool for high-protection sites (75 credits).",
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "ISO 3166-1 country code for proxy geolocation.",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Block advertisements during rendering.",
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Block heavy resources (images, fonts, css) to speed up rendering.",
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Semicolon-separated cookie list to send with the request.",
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forward Spb-* prefixed headers to the target site.",
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return a screenshot of the page instead of HTML.",
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Capture a full-page screenshot, not just the viewport.",
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "CSS selector to limit the screenshot region.",
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Wrap response in JSON format with metadata.",
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return plain text content instead of HTML.",
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return content as Markdown.",
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Return the pre-JavaScript HTML source.",
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "JSON-encoded extraction rules (CSS or XPath selectors).",
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Natural-language instruction for AI-powered data extraction.",
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions.",
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-53842be5-9bd9-4b87-b7e7-cad9e5fda570"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:44.000Z",
+          "updatedAt": "2026-07-28T02:51:44.000Z",
+          "uid": "35240-dc0204f3-d4e8-4cf0-8f46-2abd8abff3d4"
+        },
+        {
+          "name": "Scrape a URL with a POST Body",
+          "id": "f294a0ef-618c-4c02-a681-f15f3f91d3f8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "voluptate_5",
+                  "value": "88471671.54544389"
+                },
+                {
+                  "key": "eiusmod415",
+                  "value": "false"
+                },
+                {
+                  "key": "reprehenderit4e",
+                  "value": "-40821123"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?api_key=<string>&url=<uri>&render_js=<boolean>&premium_proxy=<boolean>&country_code=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ScrapingBee account key.",
+                  "key": "api_key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "url",
+                  "value": "<uri>"
+                },
+                {
+                  "key": "render_js",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "premium_proxy",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "country_code",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Same as the GET variant but accepts a request body that is forwarded to\nthe target URL as either form-encoded data or JSON.\n"
+          },
+          "response": [
+            {
+              "id": "6fc51b25-657f-40d2-bca0-04d44268f9ad",
+              "name": "Response forwarded from the target site.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "voluptate_5",
+                      "value": "88471671.54544389"
+                    },
+                    {
+                      "key": "eiusmod415",
+                      "value": "false"
+                    },
+                    {
+                      "key": "reprehenderit4e",
+                      "value": "-40821123"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?api_key=<API Key>&url=<uri>&render_js=<boolean>&premium_proxy=<boolean>&country_code=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ScrapingBee account key.",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-6fc51b25-657f-40d2-bca0-04d44268f9ad"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:44.000Z",
+          "updatedAt": "2026-07-28T02:51:44.000Z",
+          "uid": "35240-f294a0ef-618c-4c02-a681-f15f3f91d3f8"
+        }
+      ],
+      "id": "b7c585eb-ba95-43e6-a1e7-29bdd941659f",
+      "createdAt": "2026-07-28T02:51:44.000Z",
+      "updatedAt": "2026-07-28T02:51:44.000Z",
+      "uid": "35240-b7c585eb-ba95-43e6-a1e7-29bdd941659f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.scrapingbee.com/api/v1"
+    }
+  ]
+}

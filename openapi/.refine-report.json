@@ -1,0 +1,16 @@
+{
+  "provider": "scrapingbee",
+  "sources": [
+    "scrapingbee-google-search-api-api-openapi.yml",
+    "scrapingbee-html-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "scrapingbee-google-search-api-api-openapi.yml",
+    "scrapingbee-html-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
