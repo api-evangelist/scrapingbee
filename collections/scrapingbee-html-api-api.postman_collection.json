@@ -1,0 +1,1286 @@
+{
+  "item": [
+    {
+      "id": "6940a977-e884-457d-80cc-63a4d0884061",
+      "name": "HTML API",
+      "description": {
+        "content": "Headless-browser scraping with proxy rotation, screenshots, and AI extraction.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8d49aac-0754-41d3-aac8-b27fb1149f0a",
+          "name": "Scrape a URL and Return HTML, Screenshot, or JSON",
+          "request": {
+            "name": "Scrape a URL and Return HTML, Screenshot, or JSON",
+            "description": {
+              "content": "Fetch a target URL through ScrapingBee's headless browser and proxy network.\nReturns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text\ndepending on the parameters supplied.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) ScrapingBee account key."
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) URL to scrape (must be URL-encoded, include scheme)."
+                },
+                {
+                  "disabled": false,
+                  "key": "render_js",
+                  "value": "true",
+                  "description": "Execute JavaScript via headless browser. Defaults to true (5 credits)."
+                },
+                {
+                  "disabled": false,
+                  "key": "js_scenario",
+                  "value": "<string>",
+                  "description": "JSON-encoded scenario describing browser interactions (clicks, fills, scrolls, waits)."
+                },
+                {
+                  "disabled": false,
+                  "key": "wait",
+                  "value": "<integer>",
+                  "description": "Additional rendering delay in milliseconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "wait_for",
+                  "value": "<string>",
+                  "description": "CSS or XPath selector to wait for before returning."
+                },
+                {
+                  "disabled": false,
+                  "key": "wait_browser",
+                  "value": "<string>",
+                  "description": "Browser state condition to wait for."
+                },
+                {
+                  "disabled": false,
+                  "key": "premium_proxy",
+                  "value": "<boolean>",
+                  "description": "Use residential premium proxy pool (10 credits without JS, 25 with JS)."
+                },
+                {
+                  "disabled": false,
+                  "key": "stealth_proxy",
+                  "value": "<boolean>",
+                  "description": "Use the stealth proxy pool for high-protection sites (75 credits)."
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 country code for proxy geolocation."
+                },
+                {
+                  "disabled": false,
+                  "key": "block_ads",
+                  "value": "<boolean>",
+                  "description": "Block advertisements during rendering."
+                },
+                {
+                  "disabled": false,
+                  "key": "block_resources",
+                  "value": "<boolean>",
+                  "description": "Block heavy resources (images, fonts, css) to speed up rendering."
+                },
+                {
+                  "disabled": false,
+                  "key": "cookies",
+                  "value": "<string>",
+                  "description": "Semicolon-separated cookie list to send with the request."
+                },
+                {
+                  "disabled": false,
+                  "key": "forward_headers",
+                  "value": "<boolean>",
+                  "description": "Forward Spb-* prefixed headers to the target site."
+                },
+                {
+                  "disabled": false,
+                  "key": "screenshot",
+                  "value": "<boolean>",
+                  "description": "Return a screenshot of the page instead of HTML."
+                },
+                {
+                  "disabled": false,
+                  "key": "screenshot_full_page",
+                  "value": "<boolean>",
+                  "description": "Capture a full-page screenshot, not just the viewport."
+                },
+                {
+                  "disabled": false,
+                  "key": "screenshot_selector",
+                  "value": "<string>",
+                  "description": "CSS selector to limit the screenshot region."
+                },
+                {
+                  "disabled": false,
+                  "key": "json_response",
+                  "value": "<boolean>",
+                  "description": "Wrap response in JSON format with metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "return_page_text",
+                  "value": "<boolean>",
+                  "description": "Return plain text content instead of HTML."
+                },
+                {
+                  "disabled": false,
+                  "key": "return_page_markdown",
+                  "value": "<boolean>",
+                  "description": "Return content as Markdown."
+                },
+                {
+                  "disabled": false,
+                  "key": "return_page_source",
+                  "value": "<boolean>",
+                  "description": "Return the pre-JavaScript HTML source."
+                },
+                {
+                  "disabled": false,
+                  "key": "extract_rules",
+                  "value": "<string>",
+                  "description": "JSON-encoded extraction rules (CSS or XPath selectors)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ai_query",
+                  "value": "<string>",
+                  "description": "Natural-language instruction for AI-powered data extraction."
+                },
+                {
+                  "disabled": false,
+                  "key": "ai_extract_rules",
+                  "value": "<string>",
+                  "description": "JSON-encoded AI extraction rules mapping field names to natural-language descriptions."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac4baef1-25f8-4ff1-a955-da28a411349f",
+              "name": "HTML, screenshot bytes, JSON wrapper, text, or markdown depending on params.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"body\": \"string\",\n  \"headers\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"cookies\": [\n    \"string\",\n    \"string\"\n  ],\n  \"type\": \"string\",\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcc2dcb3-7387-4734-b21d-b734b50e4594",
+              "name": "Invalid parameters or unsupported URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a165c7b-ebd3-4aab-be9d-d5dc4b89dc62",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c87526ea-950e-4d26-b58d-360d404f60a1",
+              "name": "Out of API credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c529a24e-a72a-41b3-a9c2-15d71536a89b",
+              "name": "Target page not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "063b5fd7-93de-4519-9546-0f63629428dc",
+              "name": "Concurrency limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c1beeef4-653d-4fa9-ad44-792b54c83e5f",
+              "name": "Render error or upstream failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "true"
+                    },
+                    {
+                      "key": "js_scenario",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wait_for",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wait_browser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "stealth_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "block_ads",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "block_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cookies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "forward_headers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_full_page",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "screenshot_selector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json_response",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_text",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_markdown",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "return_page_source",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ai_extract_rules",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b073189b-0a34-4dca-b416-039758a306e0",
+          "name": "Scrape a URL with a POST Body",
+          "request": {
+            "name": "Scrape a URL with a POST Body",
+            "description": {
+              "content": "Same as the GET variant but accepts a request body that is forwarded to\nthe target URL as either form-encoded data or JSON.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) ScrapingBee account key."
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "render_js",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "premium_proxy",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "3890.483199073813"
+                },
+                {
+                  "disabled": false,
+                  "key": "key_1",
+                  "value": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c1cf923a-c3dc-4970-b998-2c6a540202b2",
+              "name": "Response forwarded from the target site.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render_js",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "premium_proxy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.scrapingbee.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d4cc3ca2-1544-48bf-824f-aa9f7ce74982",
+    "name": "ScrapingBee Google Search API HTML API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ScrapingBee is a France-based web scraping API that handles headless browsers,\nproxy rotation, anti-bot defenses, and CAPTCHA solving so developers can\nextract data from any website with a single API call. This OpenAPI describes\nthe core HTML scraping endpoint and the dedicated Google Search SERP API.\nSource: https://www.scrapingbee.com/documentation/\n\n\nContact Support:\n Name: ScrapingBee Support",
+      "type": "text/plain"
+    }
+  }
+}

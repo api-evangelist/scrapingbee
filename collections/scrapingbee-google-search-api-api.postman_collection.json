@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "4ec8668f-4e63-455e-8d11-834e3b6352e8",
+      "name": "Google Search API",
+      "description": {
+        "content": "Structured Google SERP results (web, news, maps, images).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b1ac347-43aa-4d8e-ac85-2bd1e3409668",
+          "name": "Run a Google Search and Return Structured SERP JSON",
+          "request": {
+            "name": "Run a Google Search and Return Structured SERP JSON",
+            "description": {
+              "content": "Execute a Google query via ScrapingBee's dedicated Search API and receive\nstructured JSON results: organic listings, knowledge graph, featured\nsnippets, news, maps, image results, related searches, and ads.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "google"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) ScrapingBee account key."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) Query string as typed into the Google search bar."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_type",
+                  "value": "classic",
+                  "description": "Which Google vertical to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-2 country code for result localization."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Result language (hl parameter equivalent)."
+                },
+                {
+                  "disabled": false,
+                  "key": "nb_results",
+                  "value": "10",
+                  "description": "Number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Result page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "device",
+                  "value": "desktop",
+                  "description": "Render Google as desktop or mobile."
+                },
+                {
+                  "disabled": false,
+                  "key": "extra_params",
+                  "value": "<string>",
+                  "description": "Additional Google query parameters (gl, hl, num, start, etc.)."
+                },
+                {
+                  "disabled": false,
+                  "key": "light_request",
+                  "value": "<boolean>",
+                  "description": "Use the cheaper, faster light request mode."
+                },
+                {
+                  "disabled": false,
+                  "key": "full_html",
+                  "value": "<boolean>",
+                  "description": "Return the full SERP HTML alongside the structured payload."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f120e889-9bfd-4d1b-9208-a88e69ac4d5a",
+              "name": "Structured Google SERP response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "google"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta_data\": {\n    \"key_0\": 4891.889307351594\n  },\n  \"organic_results\": [\n    {\n      \"position\": 9131,\n      \"title\": \"string\",\n      \"url\": \"https://ZOyCZ.bmBZItrVd5ZhcQjcY8JU8ls1BaqxfNL3Kpk1ml.3Fs\",\n      \"displayed_url\": \"string\",\n      \"description\": \"string\",\n      \"sitelinks\": [\n        {\n          \"key_0\": 8382.415894822087,\n          \"key_1\": true,\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": false,\n          \"key_2\": 265.823456221026,\n          \"key_3\": 1999.7439623973069\n        }\n      ]\n    },\n    {\n      \"position\": 1988,\n      \"title\": \"string\",\n      \"url\": \"http://NCYflijsHRixZfrNzBSKilJKMlOqeL.wpvj-nPjavQ\",\n      \"displayed_url\": \"string\",\n      \"description\": \"string\",\n      \"sitelinks\": [\n        {\n          \"key_0\": 8833,\n          \"key_1\": 2361,\n          \"key_2\": 4175,\n          \"key_3\": 2359\n        },\n        {\n          \"key_0\": 1964,\n          \"key_1\": 7466.054523746868\n        }\n      ]\n    }\n  ],\n  \"knowledge_graph\": {\n    \"key_0\": \"string\"\n  },\n  \"featured_snippet\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": 7956.541307631546,\n    \"key_3\": \"string\",\n    \"key_4\": true\n  },\n  \"related_queries\": [\n    \"string\",\n    \"string\"\n  ],\n  \"people_also_ask\": [\n    {\n      \"key_0\": 3251.6151472658016,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": true\n    }\n  ],\n  \"news_results\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": 4679.671638815761\n    }\n  ],\n  \"local_results\": [\n    {\n      \"key_0\": 1273.4279030253615\n    },\n    {\n      \"key_0\": 7514.03346520055,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"image_results\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": 4566.816107258405,\n      \"key_1\": 2895.5745768221177\n    }\n  ],\n  \"ads\": [\n    {\n      \"key_0\": 1624.9453098793254,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 9516\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1ab4a79-2682-424e-9c0c-c7770314a433",
+              "name": "Invalid search parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "google"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3c546e8-a20c-41de-a8e4-dfa21b5da936",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "google"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09a211fd-4733-4f16-a626-16293ef44682",
+              "name": "Out of API credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "google"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e956c66-233c-473d-b7f5-34d726e283c4",
+              "name": "Concurrency limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "google"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "classic"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nb_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "extra_params",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "light_request",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "full_html",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.scrapingbee.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "80798242-dfca-4894-aa5a-0161b8cd24aa",
+    "name": "ScrapingBee Google Search API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ScrapingBee is a France-based web scraping API that handles headless browsers,\nproxy rotation, anti-bot defenses, and CAPTCHA solving so developers can\nextract data from any website with a single API call. This OpenAPI describes\nthe core HTML scraping endpoint and the dedicated Google Search SERP API.\nSource: https://www.scrapingbee.com/documentation/\n\n\nContact Support:\n Name: ScrapingBee Support",
+      "type": "text/plain"
+    }
+  }
+}

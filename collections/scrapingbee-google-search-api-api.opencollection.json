@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ScrapingBee Google Search API API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Google Search API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run a Google Search and Return Structured SERP JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.scrapingbee.com/api/v1/google",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "ScrapingBee account key."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Query string as typed into the Google search bar."
+              },
+              {
+                "name": "search_type",
+                "value": "",
+                "type": "query",
+                "description": "Which Google vertical to query."
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code for result localization."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Result language (hl parameter equivalent)."
+              },
+              {
+                "name": "nb_results",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Result page number."
+              },
+              {
+                "name": "device",
+                "value": "",
+                "type": "query",
+                "description": "Render Google as desktop or mobile."
+              },
+              {
+                "name": "extra_params",
+                "value": "",
+                "type": "query",
+                "description": "Additional Google query parameters (gl, hl, num, start, etc.)."
+              },
+              {
+                "name": "light_request",
+                "value": "",
+                "type": "query",
+                "description": "Use the cheaper, faster light request mode."
+              },
+              {
+                "name": "full_html",
+                "value": "",
+                "type": "query",
+                "description": "Return the full SERP HTML alongside the structured payload."
+              }
+            ]
+          },
+          "docs": "Execute a Google query via ScrapingBee's dedicated Search API and receive\nstructured JSON results: organic listings, knowledge graph, featured\nsnippets, news, maps, image results, related searches, and ads.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
