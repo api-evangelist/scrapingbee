@@ -31,6 +31,17 @@ tags:
   - JavaScript Rendering
   - Proxy Rotation
   - Screenshots
+  - Search Engines
+  - Web Scraping
+tags_raw:
+  - AI Extraction
+  - Anti-Bot
+  - Data Aggregation
+  - Data Extraction
+  - Headless Browser
+  - JavaScript Rendering
+  - Proxy Rotation
+  - Screenshots
   - Search Engine
   - Web Scraping
 url: >-
@@ -49,6 +60,11 @@ apis:
   humanURL: https://www.scrapingbee.com/documentation/google/
   baseURL: https://app.scrapingbee.com/api/v1/google
   tags:
+  - Search Engines
+  - SERP
+  - Google
+  - Structured Data
+  tags_raw:
   - Search Engine
   - SERP
   - Google
@@ -82,6 +98,11 @@ apis:
   humanURL: https://www.scrapingbee.com/features/ai-web-scraping-api/
   baseURL: https://app.scrapingbee.com/api/v1
   tags:
+  - Artificial Intelligence
+  - LLM
+  - Data Extraction
+  - Natural-Language
+  tags_raw:
   - AI
   - LLM
   - Data Extraction
