@@ -8,6 +8,18 @@ description: >-
   Amazon, Walmart, YouTube, and ChatGPT, with JavaScript rendering, AI-powered
   data extraction, screenshots, and an MCP server for agentic workflows.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
