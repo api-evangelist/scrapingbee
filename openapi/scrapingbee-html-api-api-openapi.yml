@@ -186,11 +186,12 @@ paths:
         '400':
           description: Invalid parameters or unsupported URL.
         '401':
-          description: Missing or invalid API key -- OR out of API credits. ScrapingBee's
-            documented behavior returns 401 for both conditions (their Response Status
-            Codes documentation; reported first-party-adjacent in repo issue #1 and
-            corrected 2026-09-09). A 401 therefore does NOT distinguish a bad key from
-            an exhausted balance; check the account dashboard or the response body.
+          description: >-
+            Missing or invalid API key, OR out of API credits. ScrapingBee's documented
+            behavior returns 401 for both conditions (their Response Status Codes
+            documentation; reported in repo issue #1, corrected 2026-09-09). A 401 alone
+            does not distinguish a bad key from an exhausted balance -- check the account
+            dashboard or the response body.
         '404':
           description: Target page not found.
         '429':
