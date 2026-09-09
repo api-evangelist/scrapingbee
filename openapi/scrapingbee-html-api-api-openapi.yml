@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ScrapingBee Google Search API HTML API API
+  title: ScrapingBee Google Search HTML API
   description: 'ScrapingBee is a France-based web scraping API that handles headless browsers,
 
     proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
@@ -186,9 +186,11 @@ paths:
         '400':
           description: Invalid parameters or unsupported URL.
         '401':
-          description: Missing or invalid API key.
-        '402':
-          description: Out of API credits.
+          description: Missing or invalid API key -- OR out of API credits. ScrapingBee's
+            documented behavior returns 401 for both conditions (their Response Status
+            Codes documentation; reported first-party-adjacent in repo issue #1 and
+            corrected 2026-09-09). A 401 therefore does NOT distinguish a bad key from
+            an exhausted balance; check the account dashboard or the response body.
         '404':
           description: Target page not found.
         '429':
