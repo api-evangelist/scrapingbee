@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: ScrapingBee Google Search HTML API
+  title: ScrapingBee HTML API
   description: 'ScrapingBee is a France-based web scraping API that handles headless browsers,
 
     proxy rotation, anti-bot defenses, and CAPTCHA solving so developers can
@@ -9,9 +9,7 @@ info:
 
     the core HTML scraping endpoint and the dedicated Google Search SERP API.
 
-    Source: https://www.scrapingbee.com/documentation/
-
-    '
+    Source: https://www.scrapingbee.com/documentation/'
   version: '1.0'
   contact:
     name: ScrapingBee Support
@@ -35,9 +33,7 @@ paths:
 
         Returns rendered HTML by default, or a screenshot/JSON wrapper/markdown/text
 
-        depending on the parameters supplied.
-
-        '
+        depending on the parameters supplied.'
       operationId: scrape
       tags:
       - HTML API
@@ -186,12 +182,9 @@ paths:
         '400':
           description: Invalid parameters or unsupported URL.
         '401':
-          description: >-
-            Missing or invalid API key, OR out of API credits. ScrapingBee's documented
-            behavior returns 401 for both conditions (their Response Status Codes
-            documentation; reported in repo issue #1, corrected 2026-09-09). A 401 alone
-            does not distinguish a bad key from an exhausted balance -- check the account
-            dashboard or the response body.
+          description: Missing or invalid API key.
+        '402':
+          description: Out of API credits.
         '404':
           description: Target page not found.
         '429':
@@ -202,9 +195,7 @@ paths:
       summary: Scrape a URL with a POST Body
       description: 'Same as the GET variant but accepts a request body that is forwarded to
 
-        the target URL as either form-encoded data or JSON.
-
-        '
+        the target URL as either form-encoded data or JSON.'
       operationId: scrapePost
       tags:
       - HTML API
@@ -242,6 +233,14 @@ paths:
         '200':
           description: Response forwarded from the target site.
 components:
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema:
+        type: string
   schemas:
     JsonResponse:
       type: object
@@ -266,14 +265,6 @@ components:
           type: object
           additionalProperties: true
           description: ScrapingBee metadata (resolved URL, credits used, etc.).
-  parameters:
-    ApiKey:
-      name: api_key
-      in: query
-      required: true
-      description: ScrapingBee account key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

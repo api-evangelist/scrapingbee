@@ -9,9 +9,7 @@ info:
 
     the core HTML scraping endpoint and the dedicated Google Search SERP API.
 
-    Source: https://www.scrapingbee.com/documentation/
-
-    '
+    Source: https://www.scrapingbee.com/documentation/'
   version: '1.0'
   contact:
     name: ScrapingBee Support
@@ -35,9 +33,7 @@ paths:
 
         structured JSON results: organic listings, knowledge graph, featured
 
-        snippets, news, maps, image results, related searches, and ads.
-
-        '
+        snippets, news, maps, image results, related searches, and ads.'
       operationId: googleSearch
       tags:
       - Google Search API
@@ -116,15 +112,20 @@ paths:
         '400':
           description: Invalid search parameters.
         '401':
-          description: >-
-            Missing or invalid API key, OR out of API credits. ScrapingBee's documented
-            behavior returns 401 for both conditions (their Response Status Codes
-            documentation; reported in repo issue #1, corrected 2026-09-09). A 401 alone
-            does not distinguish a bad key from an exhausted balance -- check the account
-            dashboard or the response body.
+          description: Missing or invalid API key.
+        '402':
+          description: Out of API credits.
         '429':
           description: Concurrency limit exceeded.
 components:
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema:
+        type: string
   schemas:
     GoogleOrganicResult:
       type: object
@@ -192,14 +193,6 @@ components:
           items:
             type: object
             additionalProperties: true
-  parameters:
-    ApiKey:
-      name: api_key
-      in: query
-      required: true
-      description: ScrapingBee account key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
