@@ -119,6 +119,25 @@ paths:
           description: Concurrency limit exceeded.
 components:
   schemas:
+    GoogleOrganicResult:
+      type: object
+      properties:
+        position:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        displayed_url:
+          type: string
+        description:
+          type: string
+        sitelinks:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     GoogleSerpResponse:
       type: object
       description: Structured Google SERP payload.
@@ -162,25 +181,6 @@ components:
             type: object
             additionalProperties: true
         ads:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-    GoogleOrganicResult:
-      type: object
-      properties:
-        position:
-          type: integer
-        title:
-          type: string
-        url:
-          type: string
-          format: uri
-        displayed_url:
-          type: string
-        description:
-          type: string
-        sitelinks:
           type: array
           items:
             type: object
