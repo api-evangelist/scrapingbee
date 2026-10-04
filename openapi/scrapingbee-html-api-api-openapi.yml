@@ -233,6 +233,14 @@ paths:
         '200':
           description: Response forwarded from the target site.
 components:
+  parameters:
+    ApiKey:
+      name: api_key
+      in: query
+      required: true
+      description: ScrapingBee account key.
+      schema:
+        type: string
   schemas:
     JsonResponse:
       type: object
@@ -257,14 +265,6 @@ components:
           type: object
           additionalProperties: true
           description: ScrapingBee metadata (resolved URL, credits used, etc.).
-  parameters:
-    ApiKey:
-      name: api_key
-      in: query
-      required: true
-      description: ScrapingBee account key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
